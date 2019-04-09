@@ -1,0 +1,45 @@
+#include <iostream>
+#include <ctime>
+#include <cstdlib>
+using namespace std;
+void tukar(int*tampung,int data[],int j)
+{
+    *tampung=data[j];
+    data[j]=data[j+1];
+    data[j+1]=*tampung;
+}
+int main()
+{
+	int j,i,a,n,banyak_data,tamp;
+	cout<<"masukan jumlah data:";
+	cin>>banyak_data;
+	int data[banyak_data];
+	srand(time(NULL));
+	for(i=0;i<banyak_data;i++)
+	{
+		data[i]=(rand()%100)+1;
+	}
+	cout<<"data yg belum terurut:";
+	for(tamp:data)
+	{
+		cout<<tamp<<",";
+	}
+	for (i=0; i<banyak_data;i++)
+	{
+		for (j=0; j<banyak_data;j++)
+		{
+			if (data[j]>data[j+1])
+			{
+				tukar(&a,data,j);
+			}
+
+		}
+	}
+	cout<<"\n\ndata yang sudah terurut:";
+	for(n=0;n<banyak_data;n++)
+	{
+		cout<<data[n]<<",";
+	}
+	cout<<"\n";
+	return 0;
+}
